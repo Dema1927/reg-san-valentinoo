@@ -6,9 +6,7 @@
     <title>Happy Valentine's Day, My Love</title>
     <style>
         body {
-            /* Gradiente molto più morbido e pulito */
             background: linear-gradient(180deg, #ffdde1 0%, #ee9ca7 100%);
-            /* Font di sistema eleganti (Serif) */
             font-family: "Times New Roman", Times, serif;
             display: flex;
             flex-direction: column;
@@ -20,32 +18,32 @@
             color: #4e342e;
         }
 
-        /* Pioggia di cuori - Solo ❤️, rarissimi e lentissimi */
+        /* Rain of Hearts & Roses - Calma ed elegante */
         .heart-drop {
             position: fixed;
             top: -5%;
-            font-size: 1rem;
+            font-size: 1.2rem;
             user-select: none;
             z-index: 0;
             pointer-events: none;
             animation: fall linear forwards;
-            opacity: 0.4;
+            opacity: 0.5;
         }
 
         @keyframes fall {
-            to { transform: translateY(110vh); }
+            to { transform: translateY(110vh) rotate(20deg); }
         }
 
         h1 {
             font-weight: normal;
-            font-style: italic; /* Corsivo elegante */
+            font-style: italic;
             font-size: 2.2rem;
             margin-top: 50px;
             margin-bottom: 10px;
             z-index: 1;
             text-align: center;
-            color: #fff;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            color: #5d0911; /* Colore più scuro e profondo */
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
         }
 
         .subtitle {
@@ -55,14 +53,14 @@
             margin-bottom: 40px;
             z-index: 1;
             text-align: center;
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
-        /* The Box - Più sottile e senza fronzoli */
+        /* The Box */
         .box {
             background: #4e342e;
             padding: 15px;
-            border-radius: 15px;
+            border-radius: 20px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
@@ -71,7 +69,7 @@
             width: 90%;
             z-index: 1;
             box-sizing: border-box;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
         }
 
         @media (min-width: 768px) {
@@ -84,12 +82,12 @@
             width: 100%;
             aspect-ratio: 1 / 1;
             border: 1px solid #D4AF37;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             overflow: hidden;
             padding: 0;
             background: #2b1d1a;
-            transition: opacity 0.3s;
+            transition: transform 0.2s;
         }
 
         .choco img {
@@ -100,34 +98,41 @@
         }
 
         .choco:active {
-            transform: scale(0.98);
+            transform: scale(0.95);
         }
 
-        /* Message Display - Minimalista */
+        /* Message Display - Nuovo stile super elegante */
         #msg-box {
             display: none;
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 5px;
-            width: 85%;
-            max-width: 500px;
+            margin-top: 35px;
+            padding: 25px 35px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px; /* Radius maggiore come richiesto */
+            width: 80%;
+            max-width: 450px;
             text-align: center;
             font-style: italic;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #4e342e;
             z-index: 1;
-            border-bottom: 2px solid #D4AF37;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            animation: smoothFade 0.6s ease;
+        }
+
+        @keyframes smoothFade {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         footer {
             margin-top: auto;
-            padding: 40px 0 20px 0;
-            color: white;
+            padding: 50px 0 20px 0;
+            color: #5d0911;
             font-size: 0.7rem;
             letter-spacing: 3px;
             z-index: 1;
-            opacity: 0.5;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -169,18 +174,19 @@
             display.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart-drop');
-            heart.innerText = '❤️';
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = Math.random() * 5 + 8 + "s"; // Molto lenti (8-13 sec)
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 13000);
+        function createEmoji() {
+            const emoji = document.createElement('div');
+            emoji.classList.add('heart-drop');
+            const list = ['❤️', '🌹', '✨', '💖'];
+            emoji.innerText = list[Math.floor(Math.random() * list.length)];
+            emoji.style.left = Math.random() * 100 + "vw";
+            emoji.style.animationDuration = Math.random() * 4 + 7 + "s";
+            document.body.appendChild(emoji);
+            setTimeout(() => emoji.remove(), 11000);
         }
 
-        // Un cuore ogni secondo e mezzo (molto più calmo)
-        setInterval(createHeart, 800);
+        // Frequenza di 1.5 secondi per un effetto clean
+        setInterval(createEmoji, 1500);
     </script>
 
 </body>
