@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Sahib - Valentine's Surprise</title>
+    <title>Happy Valentine's day!</title>
     <style>
         body {
             background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
@@ -13,7 +13,7 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 40px;
+            padding: 20px; /* Ridotto per mobile */
             overflow-x: hidden;
         }
 
@@ -33,16 +33,17 @@
 
         h1 {
             color: #ffffff;
-            font-size: 4.5rem;
+            font-size: 3rem; /* Ridotto per base mobile */
             text-shadow: 4px 4px 10px rgba(142, 16, 29, 0.5);
             margin-bottom: 5px;
             z-index: 1;
+            text-align: center;
         }
 
         .subtitle {
-            font-size: 1.8rem;
+            font-size: 1.2rem; /* Ridotto per mobile */
             color: #8E101D;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             font-weight: bold;
             z-index: 1;
             text-align: center;
@@ -51,25 +52,40 @@
         /* The Box */
         .box {
             background: #4e342e;
-            padding: 50px;
-            border-radius: 40px;
+            padding: 20px; /* Ridotto per mobile */
+            border-radius: 30px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.5);
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            border: 15px double #D4AF37;
+            grid-template-columns: repeat(2, 1fr); /* 2 colonne su mobile */
+            gap: 15px;
+            border: 8px double #D4AF37;
             max-width: 1000px;
+            width: 90%; /* Occupa quasi tutto lo schermo */
             z-index: 1;
+            box-sizing: border-box;
+        }
+
+        /* Responsive Adjustment for Desktop */
+        @media (min-width: 768px) {
+            h1 { font-size: 4.5rem; }
+            .subtitle { font-size: 1.8rem; margin-bottom: 50px; }
+            .box { 
+                grid-template-columns: repeat(3, 1fr); 
+                padding: 50px; 
+                border-width: 15px;
+            }
+            .choco { width: 250px; height: 250px; }
         }
 
         /* Image-based Chocolate Button */
         .choco {
-            width: 250px;
-            height: 250px;
+            width: 100%; /* Si adatta alla colonna */
+            aspect-ratio: 1 / 1; /* Mantiene la forma quadrata */
+            height: auto;
             border: 3px solid #D4AF37;
-            border-radius: 20px;
+            border-radius: 15px;
             cursor: pointer;
-            overflow: hidden; /* Taglia l'immagine se è troppo grande */
+            overflow: hidden;
             transition: all 0.4s ease;
             box-shadow: 8px 8px 15px rgba(0,0,0,0.3);
             padding: 0;
@@ -77,22 +93,21 @@
             animation: pulse 2s infinite;
         }
 
-        /* L'immagine dentro il bottone */
         .choco img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Fa sì che l'immagine riempia il quadrato senza deformarsi */
+            object-fit: cover;
             display: block;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.03); box-shadow: 0 0 25px #D4AF37; }
+            50% { transform: scale(1.03); box-shadow: 0 0 15px #D4AF37; }
             100% { transform: scale(1); }
         }
 
         .choco:hover {
-            transform: scale(1.1) rotate(3deg);
+            transform: scale(1.05) rotate(2deg);
             z-index: 2;
             animation: none;
         }
@@ -100,28 +115,34 @@
         /* Message Display */
         #msg-box {
             display: none;
-            margin-top: 50px;
-            padding: 40px;
+            margin-top: 30px;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 30px;
-            width: 85%;
+            border-radius: 20px;
+            width: 90%;
             max-width: 900px;
             text-align: center;
             border: 5px solid #D4AF37;
-            font-size: 2.8rem;
+            font-size: 1.5rem; /* Più leggibile su mobile */
             font-weight: bold;
             color: #4e342e;
             z-index: 1;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 768px) {
+            #msg-box { font-size: 2.8rem; padding: 40px; }
         }
 
         footer {
-            margin-top: 50px;
+            margin-top: 40px;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1rem;
             z-index: 1;
             background: rgba(142, 16, 29, 0.6);
             padding: 10px 20px;
             border-radius: 10px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -131,7 +152,7 @@
     <div class="subtitle">Every chocolate has a message for you... <br> (Click them!)</div>
 
     <div class="box">
-        <button class="choco" onclick="reveal('You're sweeter than all these chocolates ')">
+        <button class="choco" onclick="reveal('You are my greatest victory! ⚽')">
             <img src="imm.jpg" alt="Chocolate">
         </button>
         
@@ -185,3 +206,4 @@
 
 </body>
 </html>
+
