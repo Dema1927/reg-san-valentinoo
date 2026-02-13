@@ -39,10 +39,10 @@
             font-style: italic;
             font-size: 2.2rem;
             margin-top: 50px;
-            margin-bottom: 10px;
+            margin-bottom: 25px; /* Aumentato lo spazio sotto il titolo */
             z-index: 1;
             text-align: center;
-            color: #a52a2a; /* Bordeaux leggermente più chiaro */
+            color: #c64b4b; /* Bordeaux ancora più chiaro e luminoso */
             text-shadow: 1px 1px 2px rgba(255,255,255,0.4);
         }
 
@@ -56,7 +56,7 @@
             opacity: 0.8;
         }
 
-        /* The Box - Bordi eleganti come prima */
+        /* The Box - Bordi eleganti */
         .box {
             background: #4e342e;
             padding: 15px;
@@ -73,7 +73,7 @@
         }
 
         @media (min-width: 768px) {
-            h1 { font-size: 3.5rem; }
+            h1 { font-size: 3.5rem; margin-bottom: 35px; }
             .box { grid-template-columns: repeat(3, 1fr); padding: 30px; }
         }
 
@@ -100,12 +100,12 @@
             transform: scale(0.95);
         }
 
-        /* Message Display - Colore Crema e Radius 30px */
+        /* Message Display - Colore Crema */
         #msg-box {
             display: none;
             margin-top: 35px;
             padding: 25px 35px;
-            background: #fff8e1; /* Colore crema */
+            background: #fff8e1; 
             border-radius: 30px;
             width: 80%;
             max-width: 450px;
@@ -176,7 +176,7 @@
         function createEmoji() {
             const emoji = document.createElement('div');
             emoji.classList.add('heart-drop');
-            const list = ['❤️', '🌹', '✨', '💖'];
+            const list = ['❤️', '🌹', '✨', '💘];
             emoji.innerText = list[Math.floor(Math.random() * list.length)];
             emoji.style.left = Math.random() * 100 + "vw";
             emoji.style.animationDuration = Math.random() * 4 + 7 + "s";
